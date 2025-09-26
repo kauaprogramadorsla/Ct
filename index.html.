@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundo com Imagem</title>
+  <style>
+    /* Define a imagem de fundo para toda a página */
+    body {
+      margin: 0; /* remove margens */
+      padding: 0;
+      background-image: url('https://i.postimg.cc/y8vhwdQc/d7aopi7-df760885-8389-49a9-872d-425fee355b4f.png');
+      background-size: cover; /* faz a imagem cobrir toda a tela */
+      background-position: center; /* centraliza a imagem */
+      background-repeat: no-repeat; /* não repete a imagem */
+      height: 100vh; /* garante que o body ocupe toda a altura da tela */
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: white; text-align: center; margin-top: 20%;">Minha Página com Fundo</h1>
+</body>
+</html>
