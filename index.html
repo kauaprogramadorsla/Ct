@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Votação</title>
+</head>
+<body>
+  <h2>Em quem você vota?</h2>
+  <button onclick="votar(1)">Opção 1</button>
+  <button onclick="votar(2)">Opção 2</button>
+  <p id="resultado"></p>
+
+  <script>
+    async function votar(opcao) {
+      // Envia o voto para o servidor
+      await fetch("http://localhost:3000/votar", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({opcao})
+      });
+      atualizarResultado();
+    }
+
+    async function atualizarResultado() {
+      let res = await fetch("http://localhost:3000/resultado");
+      let dados = await res.json();
+      document.getElementById("resultado").innerText =
+        `Opção 1: ${dados.op1}% | Opção 2: ${dados.op2}%`;
+    }
+
+    // Atualiza a cada 2 segundos
+    setInterval(atualizarResultado, 2000);
+    atualizarResultado();
+  </script>
+</body>
+</html>
